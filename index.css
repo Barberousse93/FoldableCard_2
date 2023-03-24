@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(rgb(135, 135, 240), rgb(114, 114, 155));
+}
+
+.carte {
+    position: absolute;
+    background-color: aliceblue;
+    width: 600px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: 1s;
+}
+
+.carte:hover {
+    transform: translateX(50%);
+    transition: 2s;
+}
+
+.carte:hover .photos {
+    transform: rotateY(-180deg);
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.carte .contenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carte .contenu h1 {
+    text-transform: uppercase;
+}
+
+.carte .photos {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    background: #000;
+    transition: 2s;
+}
+
+.carte .photos img:nth-child(2) {
+    transform: rotateY(180deg);
+}
+
+.carte .photos img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
